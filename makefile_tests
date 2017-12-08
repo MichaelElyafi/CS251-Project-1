@@ -1,0 +1,51 @@
+# these two lines specify make "variables"
+# makes it easy to change to a different compiler and
+# change the flags.  Notice the variables are "expanded"
+# with a $ sign.
+CC=gcc 
+FLAGS= -std=c99 -g
+TESTS= t1 t2 t3 t4 t5 t6 t7 t8 t9
+
+all: llist.o $(TESTS)
+
+
+
+tests: $(TESTS)
+
+t1: llist.o t1.c header.c
+	$(CC) $(FLAGS) t1.c llist.o -o t1
+
+t2: llist.o t2.c header.c
+	$(CC) $(FLAGS) t2.c llist.o -o t2
+
+t3: llist.o t3.c header.c
+	$(CC) $(FLAGS) t3.c llist.o -o t3
+
+t4: llist.o t4.c header.c
+	$(CC) $(FLAGS) t4.c llist.o -o t4
+
+t5: llist.o t5.c header.c
+	$(CC) $(FLAGS) t5.c llist.o -o t5
+
+t6: llist.o t6.c header.c
+	$(CC) $(FLAGS) t6.c llist.o -o t6
+
+t7: llist.o t7.c header.c
+	$(CC) $(FLAGS) t7.c llist.o -o t7
+
+t8: llist.o t8.c header.c
+	$(CC) $(FLAGS) t8.c llist.o -o t8
+
+t9: llist.o t9.c header.c
+	$(CC) $(FLAGS) t9.c llist.o -o t9
+
+t10: llist.o t10.c header.c
+	$(CC) $(FLAGS) t10.c llist.o -o t10
+	
+
+llist.o: list.h llist.c
+	$(CC) $(FLAGS) -c llist.c
+
+clean:
+	rm -f *.o ll_tst ras_demo tests_pt1 tests_pt2 $(TESTS)
+
